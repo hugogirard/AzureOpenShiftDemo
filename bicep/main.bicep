@@ -40,7 +40,7 @@ module aro 'aro/aro.bicep' = {
     aadClientSecret: aadClientSecret
     domain: domain
     location: location
-    masterSubnetId: vnet.outputs.masterSubnetId
+    masterSubnetId: vnet.outputs.masterSubnetId    
     suffix: suffix
     workerSubnetId: vnet.outputs.workerSubnetId
   }

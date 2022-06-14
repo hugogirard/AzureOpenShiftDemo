@@ -5,8 +5,6 @@ param masterSubnetId string
 param workerSubnetId string
 
 @secure()
-param pullSecret string
-@secure()
 param aadClientId string
 @secure()
 param aadClientSecret string
@@ -21,7 +19,7 @@ resource clusterName_resource 'Microsoft.RedHatOpenShift/OpenShiftClusters@2020-
   properties: {
     clusterProfile: {
       domain: domain
-      resourceGroupId: '/subscriptions/${subscription().subscriptionId}/resourceGroups/aro-${domain}-${location}'
+      resourceGroupId: '/subscriptions/${subscription().subscriptionId}/resourceGroups/aro-${domain}-${location}'      
     }
     networkProfile: {
       podCidr: podCidr

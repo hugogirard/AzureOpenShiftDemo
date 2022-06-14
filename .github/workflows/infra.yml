@@ -36,7 +36,7 @@ jobs:
           tokenPrefix: __        
           tokenSuffix: __        
           files: '["./bicep/main.parameters.json"]'
-        env:
+        env:          
           aadClientId: ${{ secrets.SP_AAD_CLIENT_ID }}
           aadClientSecret: ${{ secrets.SP_AAD_CLIENT_SECRET }}
           domain: ${{ secrets.DOMAIN }}
