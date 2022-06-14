@@ -6,7 +6,7 @@ param workerSubnetCidr string
 var vnetName = 'vnet-aro'
 
 
-resource clusterVnetName_resource 'Microsoft.Network/virtualNetworks@2020-05-01' = {
+resource vnet 'Microsoft.Network/virtualNetworks@2020-05-01' = {
   name: vnetName
   location: location  
   properties: {
@@ -42,3 +42,6 @@ resource clusterVnetName_resource 'Microsoft.Network/virtualNetworks@2020-05-01'
     ]
   }
 }
+
+output masterSubnetId string = vnet.properties.subnets[0].id
+output workerSubnetId string = vnet.properties.subnets[1].id

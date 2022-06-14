@@ -6,6 +6,17 @@ param masterSubnetCidr string
 param workerSubnetCidr string
 param rgSpokeName string
 
+@secure()
+param domain string
+
+@secure()
+param pullSecret string
+@secure()
+param aadClientId string
+@secure()
+param aadClientSecret string
+
+var suffix = uniqueString(spokeRg.name)
 
 resource spokeRg 'Microsoft.Resources/resourceGroups@2021-04-01' = {
   name: rgSpokeName
@@ -20,5 +31,20 @@ module vnet 'network/network.bicep' = {
     location: location
     masterSubnetCidr: masterSubnetCidr
     workerSubnetCidr: workerSubnetCidr
+  }
+}
+
+module aro 'aro/aro.bicep' = {
+  scope: resourceGroup(spokeRg.name)
+  name: 'aro'
+  params: {
+    aadClientId: aadClientId
+    aadClientSecret: aadClientSecret
+    domain: domain
+    location: location
+    masterSubnetId: vnet.outputs.masterSubnetId
+    pullSecret: pullSecret
+    suffix: suffix
+    workerSubnetId: vnet.outputs.workerSubnetId
   }
 }
