@@ -10,8 +10,6 @@ param rgSpokeName string
 param domain string
 
 @secure()
-param pullSecret string
-@secure()
 param aadClientId string
 @secure()
 param aadClientSecret string
@@ -43,7 +41,6 @@ module aro 'aro/aro.bicep' = {
     domain: domain
     location: location
     masterSubnetId: vnet.outputs.masterSubnetId
-    pullSecret: pullSecret
     suffix: suffix
     workerSubnetId: vnet.outputs.workerSubnetId
   }

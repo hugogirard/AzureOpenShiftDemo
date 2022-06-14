@@ -35,9 +35,8 @@ jobs:
         with:        
           tokenPrefix: __        
           tokenSuffix: __        
-          files: '["deploy.parameters.json"]'
+          files: '["./bicep/main.parameters.json"]'
         env:
-          pullSecret: ${{ secrets.REDHAT_PULL_SECRET }}
           aadClientId: ${{ secrets.SP_AAD_CLIENT_ID }}
           aadClientSecret: ${{ secrets.SP_AAD_CLIENT_SECRET }}
           domain: ${{ secrets.DOMAIN }}
