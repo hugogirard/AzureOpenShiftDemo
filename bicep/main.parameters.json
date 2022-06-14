@@ -16,6 +16,18 @@
         },
         "workerSubnetCidr": {
             "value": "172.18.1.0/24"
+        },
+        "pullSecret": {
+            "value": "__pullSecret__"
+        },
+        "aadClientId": {
+            "value": "__aadClientId__"
+        },
+        "aadClientSecret": {
+            "value": "__aadClientSecret__"
+        },
+        "domain": {
+            "value": "__domain__"
         }
     }
 }
