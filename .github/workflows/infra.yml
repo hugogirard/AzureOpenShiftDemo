@@ -41,5 +41,5 @@ jobs:
           region: ${{ env.LOCATION }}
           resourceGroupName: ${{ env.RESOURCE_GROUP_NAME }}
           template: ./bicep/main.json
-          parameters: ./bicep/main.parameters.json pullSecret=${{ secrets.REDHAT_PULL_SECRET }} aadClientId=${{ secrets.SP_AAD_CLIENT_ID }} aadClientSecret=${{ secrets.SP_AAD_CLIENT_SECRET }}
+          parameters: ./bicep/main.parameters.json pullSecret=${{ secrets.REDHAT_PULL_SECRET }} aadClientId=${{ secrets.SP_AAD_CLIENT_ID }} aadClientSecret=${{ secrets.SP_AAD_CLIENT_SECRET }} domain=${{ secrets.DOMAIN }}
 
